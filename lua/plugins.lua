@@ -20,6 +20,8 @@ return packer.startup(function(use)
   -- plugin to provide code related features like
   -- go to reference, go to definition, code actions, etc.
   use 'tami5/lspsaga.nvim'
+  -- plugin to combine native lsp with other sources
+  use 'jose-elias-alvarez/null-ls.nvim'
   -- plugin for auto completion
   use 'hrsh7th/nvim-cmp'
   -- sources for nvim cmp

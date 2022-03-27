@@ -19,6 +19,18 @@ end
 
 lspsaga.init_lsp_saga()
 
+local nullls_ok, nullls = pcall(require, 'null-ls')
+if not nullls_ok then
+  return
+end
+
+nullls.setup {
+  sources = {
+    nullls.builtins.diagnostics.eslint,
+    nullls.builtins.formatting.prettier
+  }
+}
+
 local nvimcmp_ok, nvimcmp = pcall(require, 'cmp')
 if not nvimcmp_ok then
   return
