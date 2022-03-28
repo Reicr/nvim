@@ -5,31 +5,10 @@ vim.cmd('set expandtab') -- converts tabs to spaces
 
 require('plugins')
 
-local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
-if not lspconfig_ok then
-  return
-end
-
-lspconfig.tsserver.setup {}
-
-local lspsaga_ok, lspsaga = pcall(require, 'lspsaga')
-if not lspsaga_ok then
-  return
-end
-
-lspsaga.init_lsp_saga()
-
-local nullls_ok, nullls = pcall(require, 'null-ls')
-if not nullls_ok then
-  return
-end
-
-nullls.setup {
-  sources = {
-    nullls.builtins.diagnostics.eslint,
-    nullls.builtins.formatting.prettier
-  }
-}
+-- Load dracula theme
+vim.cmd[[colorscheme dracula]]
+-- use transparent background
+vim.g.dracula_transparent_bg = true
 
 local nvimcmp_ok, nvimcmp = pcall(require, 'cmp')
 if not nvimcmp_ok then
@@ -53,12 +32,89 @@ nvimcmp.setup {
   }
 }
 
+local cmpnvimlsp_ok, cmpnvimlsp = pcall(require, 'cmp_nvim_lsp')
+if not cmpnvimlsp_ok then
+  return
+end
+
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = cmpnvimlsp.update_capabilities(capabilities)
+
+local lspinstaller_ok, lspinstaller = pcall(require, 'nvim-lsp-installer')
+if not lspinstaller_ok then
+  return
+end
+
+-- Include the servers you want to have installed by default below
+local servers = {
+  'cssls',
+  'cssmodules_ls',
+  'graphql',
+  'html',
+  'tsserver'
+}
+
+for _, name in pairs(servers) do
+  local server_is_found, server = lspinstaller.get_server(name)
+  if server_is_found and not server:is_installed() then
+    print("Installing " .. name)
+    server:install()
+  end
+end
+
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lspinstaller.on_server_ready(function(server)
+    local opts = {
+      capabilities = capabilities
+    }
+
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+
+    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+    -- before passing it onwards to lspconfig.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    server:setup(opts)
+end)
+
+local lspsaga_ok, lspsaga = pcall(require, 'lspsaga')
+if not lspsaga_ok then
+  return
+end
+
+lspsaga.init_lsp_saga()
+
+local nullls_ok, nullls = pcall(require, 'null-ls')
+if not nullls_ok then
+  return
+end
+
+nullls.setup {
+  sources = {
+    nullls.builtins.code_actions.gitsigns,
+    nullls.builtins.completion.vsnip,
+    nullls.builtins.diagnostics.eslint,
+    nullls.builtins.formatting.prettier
+  }
+}
+
 local treesittercfg_ok, treesittercfg = pcall(require, 'nvim-treesitter.configs')
 if not treesittercfg_ok then
   return
 end
 
 treesittercfg.setup {
+  ensure_installed = {
+    'css',
+    'graphql',
+    'html',
+    'javascript',
+    'typescript'
+  },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false
@@ -70,7 +126,15 @@ if not nvimtree_ok then
   return
 end
 
-nvimtree.setup {}
+nvimtree.setup {
+  highlight_opened_files = 3,
+  update_focused_file = {
+    enable = true
+  },
+  view = {
+    width = 60
+  }
+}
 
 local whichkey_ok, whichkey = pcall(require, 'which-key')
 if not whichkey_ok then
@@ -94,8 +158,8 @@ whichkey.register({
     r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
     R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
     a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code actions' },
-    n = { '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', 'Go to next diagnostic' },
-    p = { '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', 'Go to previous diagnostic' }
+    n = { '<cmd>lua vim.diagnostic.goto_next()<cr>', 'Go to next diagnostic' },
+    p = { '<cmd>lua vim.diagnostic.goto_prev()<cr>', 'Go to previous diagnostic' }
   },
   s = {
     name = 'LSP Saga',
@@ -110,3 +174,10 @@ if not lualine_ok then
 end
 
 lualine.setup {}
+
+local gitsigns_ok, gitsigns = pcall(require, 'gitsigns')
+if not gitsigns_ok then
+  return
+end
+
+gitsigns.setup()
