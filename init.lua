@@ -7,8 +7,6 @@ require('plugins')
 
 -- Load dracula theme
 vim.cmd[[colorscheme dracula]]
--- use transparent background
-vim.g.dracula_transparent_bg = true
 
 local nvimcmp_ok, nvimcmp = pcall(require, 'cmp')
 if not nvimcmp_ok then
@@ -190,6 +188,7 @@ end
 telescope.setup {
   defaults = {
     file_ignore_patterns = {
+      'build[\\/]',
       '%.git[\\/]',
       '%.next[\\/]',
       'node_modules'
