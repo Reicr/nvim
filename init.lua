@@ -7,6 +7,9 @@ require('plugins')
 
 -- Load dracula theme
 vim.cmd[[colorscheme dracula]]
+-- use transparent background
+vim.g.dracula_transparent_bg = true
+vim.g.dracula_italic_comment = false
 
 local nvimcmp_ok, nvimcmp = pcall(require, 'cmp')
 if not nvimcmp_ok then
@@ -146,23 +149,21 @@ whichkey.register({
     e = { '<cmd>NvimTreeToggle<cr>', 'File explorer' },
     f = { '<cmd>Telescope find_files<cr>', 'Find file' }
   },
-  l = {
-    name = 'LSP',
-    i = { ':LspInfo<cr>', 'LSP Info' },
-    K = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Hover commands' },
-    t = { '<cmd>lua vim.lsp.buf.type_definition()<cr>', 'Type definition' },
-    d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Go to definition' },
-    D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Go to declaration' },
-    r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
-    R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
-    a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code actions' },
-    n = { '<cmd>lua vim.diagnostic.goto_next()<cr>', 'Go to next diagnostic' },
-    p = { '<cmd>lua vim.diagnostic.goto_prev()<cr>', 'Go to previous diagnostic' }
-  },
   s = {
     name = 'LSP Saga',
-    K = { '<cmd>Lspsaga hover_doc<cr>', 'Hover commands' },
-    a = { '<cmd>Lspsaga code_action<cr>', 'Code actions' }
+    a = { '<cmd>Lspsaga code_action<cr>', 'Code actions' },
+    d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Go to definition' },
+    f = { ':Lspsaga lsp_finder<cr>', 'Finder'},
+    i = { ':LspInfo<cr>', 'LSP Info' },
+    j = { ':Lspsaga diagnostic_jump_next<cr>', 'Go to next diagnostic'},
+    k = { ':Lspsaga diagnostic_jump_prev<cr>', 'Go to previous diagnostic'},
+    p = { ':Lspsaga preview_definition<cr>', 'Preview definition'},
+    r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
+    s = { ':Lspsaga signature_help<cr>', 'Signature help'},
+    t = { '<cmd>lua vim.lsp.buf.type_definition()<cr>', 'Type definition' },
+    D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Go to declaration' },
+    K = { ':Lspsaga hover_doc<cr>', 'Hover commands' },
+    R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
   }
 })
 
