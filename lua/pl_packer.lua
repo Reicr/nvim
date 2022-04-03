@@ -40,6 +40,15 @@ return packer.startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  -- plugin that adds an improved fuzzy finder
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- plugin adds telescope integration for conventional commits
+  use 'olacin/telescope-cc.nvim'
+  -- plugin to show pretty diagnostics
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons"
+  }
   -- plugin offering a file explorer
   use {
     'kyazdani42/nvim-tree.lua',

@@ -6,9 +6,34 @@ end
 whichkey.setup {}
 whichkey.register({
   f = {
-    name = 'file',
+    name = 'File',
+    a = { '<cmd>Telescope lsp_code_actions<cr>', 'LSP code actions' },
+    d = { '<cmd>Telescope lsp_definitions<cr>', 'LSP definitions' },
     e = { '<cmd>NvimTreeToggle<cr>', 'File explorer' },
-    f = { '<cmd>Telescope find_files<cr>', 'Find file' }
+    f = { '<cmd>Telescope find_files<cr>', 'Find file' },
+    g = { '<cmd>Telescope grep_string<cr>', 'Grep cursor string' },
+    i = { '<cmd>Telescope lsp_implementations<cr>', 'LSP implementations' },
+    l = { '<cmd>Telescope live_grep<cr>', 'Live grep string' },
+    r = { '<cmd>Telescope lsp_references<cr>', 'LSP references' },
+    s = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Buffer fuzzy find' },
+    t = { '<cmd>Telescope lsp_type_definitions<cr>', 'LSP type definitions' },
+    G = {
+      name = 'Git',
+      b = { '<cmd>Telescope git_branches<cr>', 'Git branches' },
+      c = { '<cmd>Telescope git_commits<cr>', 'Git commits' },
+      s = { '<cmd>Telescope git_stash<cr>', 'Git stash' },
+      t = { '<cmd>Telescope git_status<cr>', 'Git status' }
+    },
+    T = {
+      name = 'Trouble',
+      d = { '<cmd>Trouble lsp_definitions<cr>', 'LSP definitions' },
+      i = { '<cmd>Trouble lsp_implementations<cr>', 'LSP implementations' },
+      r = { '<cmd>Trouble lsp_references<cr>', 'LSP references' },
+      t = { '<cmd>Trouble lsp_type_definitions<cr>', 'LSP type definitions' },
+      D = { '<cmd>Trouble document_diagnostics<cr>', 'Document diagnostics' },
+      T = { '<cmd>TroubleToggle<cr>', 'Toggle trouble' },
+      W = { '<cmd>Trouble workspace_diagnostics<cr>', 'Workspace diagnostics' }
+    }
   },
   s = {
     name = 'LSP Saga',
@@ -24,7 +49,8 @@ whichkey.register({
     s = { ':Lspsaga signature_help<cr>', 'Signature help'},
     t = { '<cmd>lua vim.lsp.buf.type_definition()<cr>', 'Type definition' },
     D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Go to declaration' },
-    K = { ':Lspsaga hover_doc<cr>', 'Hover commands' },
+    I = { ':Lspsaga implement<cr>', 'Show implementation' },
+    K = { ':Lspsaga hover_doc<cr>', 'Display hover doc' },
     R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
   }
 })
