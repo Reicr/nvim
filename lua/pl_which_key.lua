@@ -8,6 +8,7 @@ whichkey.register({
   f = {
     name = 'File',
     a = { '<cmd>Telescope lsp_code_actions<cr>', 'LSP code actions' },
+    c = { '<cmd>Telescope conventional_commits<cr>', 'Conventional commits' },
     d = { '<cmd>Telescope lsp_definitions<cr>', 'LSP definitions' },
     e = { '<cmd>NvimTreeToggle<cr>', 'File explorer' },
     f = { '<cmd>Telescope find_files<cr>', 'Find file' },

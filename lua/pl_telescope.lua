@@ -13,3 +13,5 @@ telescope.setup {
     }
   }
 }
+
+telescope.load_extension("conventional_commits")
