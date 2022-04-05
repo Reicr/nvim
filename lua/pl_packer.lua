@@ -63,6 +63,8 @@ return packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  -- plugin for git commands
+  use 'tpope/vim-fugitive'
   -- plugin to add git features
   use {
     'lewis6991/gitsigns.nvim',

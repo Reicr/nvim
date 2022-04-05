@@ -4,17 +4,17 @@ if not nullls_ok then
 end
 
 nullls.setup({
-  on_attach = function(client)
-    -- trigger formatting on save
-    if client.resolved_capabilities.document_formatting then
-      vim.cmd([[
-      augroup LspFormatting
-        autocmd! * <buffer>
-        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-      augroup END
-      ]])
-    end
-  end,
+  -- on_attach = function(client)
+  --   -- trigger formatting on save
+  --   if client.resolved_capabilities.document_formatting then
+  --     vim.cmd([[
+  --     augroup LspFormatting
+  --       autocmd! * <buffer>
+  --       autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+  --     augroup END
+  --     ]])
+  --   end
+  -- end,
   sources = {
     nullls.builtins.code_actions.eslint,
     nullls.builtins.code_actions.gitsigns,

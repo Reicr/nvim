@@ -4,7 +4,9 @@ if not nvimtree_ok then
 end
 
 nvimtree.setup {
-  highlight_opened_files = 3,
+  hijack_directories = {
+    enable = false
+  },
   update_focused_file = {
     enable = true
   },
