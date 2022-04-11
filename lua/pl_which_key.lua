@@ -7,19 +7,26 @@ whichkey.setup {}
 whichkey.register({
   ["<leader>"] = {
     f = {
-      name = 'File',
+      name = 'Telescope',
       a = { '<cmd>Telescope lsp_code_actions<cr>', 'LSP code actions' },
       c = { '<cmd>Telescope conventional_commits<cr>', 'Conventional commits' },
       d = { '<cmd>Telescope lsp_definitions<cr>', 'LSP definitions' },
+      ['dd'] = { '<cmd>Telescope diagnostics bufnr=0<cr>', 'LSP document diagnostics' },
+      ['ds'] = { '<cmd>Telescope lsp_document_symbols<cr>', 'LSP document symbols' },
       e = { '<cmd>NvimTreeToggle<cr>', 'File explorer' },
       f = { '<cmd>Telescope find_files<cr>', 'Find file' },
       g = { '<cmd>Telescope grep_string<cr>', 'Grep cursor string' },
       i = { '<cmd>Telescope lsp_implementations<cr>', 'LSP implementations' },
       l = { '<cmd>Telescope live_grep<cr>', 'Live grep string' },
+      o = { ':OrganizeImports<cr>', 'Organize imports'},
       r = { '<cmd>Telescope lsp_references<cr>', 'LSP references' },
       s = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Buffer fuzzy find' },
       t = { '<cmd>Telescope lsp_type_definitions<cr>', 'LSP type definitions' },
       v = { '<cmd>lua vim.lsp.buf.formatting_sync()<cr>', 'Format file' },
+      ['wd'] = { '<cmd>Telescope diagnostics<cr>', 'LSP workspace diagnostics' },
+      ['ws'] = { '<cmd>Telescope lsp_workspace_symbols<cr>', 'LSP workspace symbols' },
+      I = { ':LspInfo<cr>', 'LSP Info' },
+      R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
     },
     g = {
       name = 'Git',
@@ -42,21 +49,14 @@ whichkey.register({
     },
     s = {
       name = 'LSP Saga',
-      a = { '<cmd>Lspsaga code_action<cr>', 'Code actions' },
-      d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Go to definition' },
+      a = { ':Lspsaga code_action<cr>', 'Code actions' },
       f = { ':Lspsaga lsp_finder<cr>', 'Finder'},
-      i = { ':LspInfo<cr>', 'LSP Info' },
+      i = { ':Lspsaga implement<cr>', 'Show implementation' },
       j = { ':Lspsaga diagnostic_jump_next<cr>', 'Go to next diagnostic'},
       k = { ':Lspsaga diagnostic_jump_prev<cr>', 'Go to previous diagnostic'},
-      o = { ':OrganizeImports<cr>', 'Organize imports'},
       p = { ':Lspsaga preview_definition<cr>', 'Preview definition'},
-      r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
       s = { ':Lspsaga signature_help<cr>', 'Signature help'},
-      t = { '<cmd>lua vim.lsp.buf.type_definition()<cr>', 'Type definition' },
-      D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Go to declaration' },
-      I = { ':Lspsaga implement<cr>', 'Show implementation' },
       K = { ':Lspsaga hover_doc<cr>', 'Display hover doc' },
-      R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
     }
   }
 })

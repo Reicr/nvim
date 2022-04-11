@@ -71,4 +71,6 @@ return packer.startup(function(use)
   }
   -- Dracula theme
   use 'Mofiqul/dracula.nvim'
+  -- plugin to highlight the word under the cursor
+  use 'yamatsum/nvim-cursorline'
 end)
