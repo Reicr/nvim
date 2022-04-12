@@ -14,6 +14,7 @@ require('pl_packer')
 vim.cmd[[colorscheme dracula]]
 
 -- Run plugin setup
+require('pl_comment')
 require('pl_git_signs')
 require('pl_lsp_installer')
 require('pl_lsp_saga')
