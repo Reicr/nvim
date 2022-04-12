@@ -19,7 +19,7 @@ return packer.startup(function(use)
   use 'williamboman/nvim-lsp-installer'
   -- plugin to provide code related features like
   -- go to reference, go to definition, code actions, etc.
-  use 'tami5/lspsaga.nvim'
+  use { 'Reicr/lspsaga.nvim', branch = 'develop' }
   -- plugin to combine native lsp with other sources
   use 'jose-elias-alvarez/null-ls.nvim'
   -- plugin for auto completion
@@ -27,9 +27,10 @@ return packer.startup(function(use)
   -- sources for nvim cmp
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-nvim-lsp-document-symbol'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-path'
+  use 'ray-x/cmp-treesitter'
   -- plugin for syntax highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
