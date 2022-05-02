@@ -57,7 +57,7 @@ return packer.startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+      'kyazdani42/nvim-web-devicons'
     }
   }
   -- plugin for command hints
@@ -70,13 +70,15 @@ return packer.startup(function(use)
   -- plugin for git commands
   use 'tpope/vim-fugitive'
   -- plugin to add git features
-  use {
-    'lewis6991/gitsigns.nvim',
-  }
+  use 'lewis6991/gitsigns.nvim'
   -- Dracula theme
   use 'Mofiqul/dracula.nvim'
   -- plugin to highlight the word under the cursor
   use 'yamatsum/nvim-cursorline'
   -- plugin offers an imroved commenting workflow
   use 'numToStr/Comment.nvim'
+  -- plugin offers autocompletion for parantheses and quotes
+  use 'windwp/nvim-autopairs'
+  -- plugiin offers a buffer / tab line
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
 end)

@@ -16,9 +16,15 @@ capabilities = cmpnvimlsp.update_capabilities(capabilities)
 local servers = {
   'cssls',
   'cssmodules_ls',
+  'eslint',
   'graphql',
+  'jsonls',
   'html',
-  'tsserver'
+  'svelte',
+  'tsserver',
+  'vimls',
+  'vuels',
+  'yamlls'
 }
 
 for _, name in pairs(servers) do

@@ -6,6 +6,12 @@ end
 whichkey.setup {}
 whichkey.register({
   ["<leader>"] = {
+    b = {
+      name = 'Bufferline',
+      d = { ':bdelete!<cr>', 'Delete buffer' },
+      j = { ':BufferLineCycleNext<cr>', 'Next buffer' },
+      k = { ':BufferLineCyclePrev<cr>', 'Previous buffer' }
+    },
     f = {
       name = 'Telescope',
       a = { '<cmd>Telescope lsp_code_actions<cr>', 'LSP code actions' },
@@ -37,16 +43,6 @@ whichkey.register({
       s = { '<cmd>Telescope git_stash<cr>', 'Git stash' },
       t = { '<cmd>Telescope git_status<cr>', 'Git status' }
     },
-    t = {
-      name = 'Trouble',
-      d = { '<cmd>Trouble lsp_definitions<cr>', 'LSP definitions' },
-      i = { '<cmd>Trouble lsp_implementations<cr>', 'LSP implementations' },
-      r = { '<cmd>Trouble lsp_references<cr>', 'LSP references' },
-      t = { '<cmd>Trouble lsp_type_definitions<cr>', 'LSP type definitions' },
-      D = { '<cmd>Trouble document_diagnostics<cr>', 'Document diagnostics' },
-      T = { '<cmd>TroubleToggle<cr>', 'Toggle trouble' },
-      W = { '<cmd>Trouble workspace_diagnostics<cr>', 'Workspace diagnostics' }
-    },
     s = {
       name = 'LSP Saga',
       a = { ':Lspsaga code_action<cr>', 'Code actions' },
@@ -57,6 +53,16 @@ whichkey.register({
       p = { ':Lspsaga preview_definition<cr>', 'Preview definition'},
       s = { ':Lspsaga signature_help<cr>', 'Signature help'},
       K = { ':Lspsaga hover_doc<cr>', 'Display hover doc' },
+    },
+    t = {
+      name = 'Trouble',
+      d = { '<cmd>Trouble lsp_definitions<cr>', 'LSP definitions' },
+      i = { '<cmd>Trouble lsp_implementations<cr>', 'LSP implementations' },
+      r = { '<cmd>Trouble lsp_references<cr>', 'LSP references' },
+      t = { '<cmd>Trouble lsp_type_definitions<cr>', 'LSP type definitions' },
+      D = { '<cmd>Trouble document_diagnostics<cr>', 'Document diagnostics' },
+      T = { '<cmd>TroubleToggle<cr>', 'Toggle trouble' },
+      W = { '<cmd>Trouble workspace_diagnostics<cr>', 'Workspace diagnostics' }
     }
   }
 })

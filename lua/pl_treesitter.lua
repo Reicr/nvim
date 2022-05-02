@@ -12,8 +12,13 @@ treesittercfg.setup {
     'json',
     'lua',
     'markdown',
+    'scss',
+    'svelte',
     'tsx',
-    'typescript'
+    'typescript',
+    'vim',
+    'vue',
+    'yaml'
   },
   highlight = {
     enable = true,
