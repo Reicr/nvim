@@ -18,12 +18,13 @@ local servers = {
   'cssmodules_ls',
   'eslint',
   'graphql',
-  'jsonls',
   'html',
+  'jsonls',
+  'sumneko_lua',
   'svelte',
   'tsserver',
   'vimls',
-  'vuels',
+  'volar',
   'yamlls'
 }
 
