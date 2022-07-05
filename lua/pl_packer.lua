@@ -17,11 +17,6 @@ return packer.startup(function(use)
   use 'neovim/nvim-lspconfig'
   -- plugin to ease lsp installation
   use 'williamboman/nvim-lsp-installer'
-  -- plugin to provide code related features like
-  -- go to reference, go to definition, code actions, etc.
-  use { 'Reicr/lspsaga.nvim', branch = 'develop' }
-  -- plugin to combine native lsp with other sources
-  use 'jose-elias-alvarez/null-ls.nvim'
   -- plugin for auto completion
   use 'hrsh7th/nvim-cmp'
   -- sources for nvim cmp
