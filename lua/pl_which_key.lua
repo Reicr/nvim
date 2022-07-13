@@ -14,7 +14,6 @@ whichkey.register({
     },
     f = {
       name = 'Telescope',
-      a = { '<cmd>Telescope lsp_code_actions<cr>', 'LSP code actions' },
       c = { '<cmd>Telescope conventional_commits<cr>', 'Conventional commits' },
       d = { '<cmd>Telescope lsp_definitions<cr>', 'LSP definitions' },
       ['dd'] = { '<cmd>Telescope diagnostics bufnr=0<cr>', 'LSP document diagnostics' },
@@ -31,8 +30,6 @@ whichkey.register({
       v = { '<cmd>lua vim.lsp.buf.formatting_sync()<cr>', 'Format file' },
       ['wd'] = { '<cmd>Telescope diagnostics<cr>', 'LSP workspace diagnostics' },
       ['ws'] = { '<cmd>Telescope lsp_workspace_symbols<cr>', 'LSP workspace symbols' },
-      I = { ':LspInfo<cr>', 'LSP Info' },
-      R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
     },
     g = {
       name = 'Git',
@@ -42,6 +39,14 @@ whichkey.register({
       k = { '<cmd>Gitsigns prev_hunk<cr>', 'Previous hunk' },
       s = { '<cmd>Telescope git_stash<cr>', 'Git stash' },
       t = { '<cmd>Telescope git_status<cr>', 'Git status' }
+    },
+    l = {
+      name = 'LSP',
+      a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code Actions' },
+      f = { '<cmd>lua vim.lsp.buf.formatting_sync()<cr>', 'Format file' },
+      h = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Hover' },
+      I = { ':LspInfo<cr>', 'LSP Info' },
+      R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
     },
     t = {
       name = 'Trouble',
