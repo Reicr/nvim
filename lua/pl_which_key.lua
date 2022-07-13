@@ -43,17 +43,6 @@ whichkey.register({
       s = { '<cmd>Telescope git_stash<cr>', 'Git stash' },
       t = { '<cmd>Telescope git_status<cr>', 'Git status' }
     },
-    s = {
-      name = 'LSP Saga',
-      a = { ':Lspsaga code_action<cr>', 'Code actions' },
-      f = { ':Lspsaga lsp_finder<cr>', 'Finder'},
-      i = { ':Lspsaga implement<cr>', 'Show implementation' },
-      j = { ':Lspsaga diagnostic_jump_next<cr>', 'Go to next diagnostic'},
-      k = { ':Lspsaga diagnostic_jump_prev<cr>', 'Go to previous diagnostic'},
-      p = { ':Lspsaga preview_definition<cr>', 'Preview definition'},
-      s = { ':Lspsaga signature_help<cr>', 'Signature help'},
-      K = { ':Lspsaga hover_doc<cr>', 'Display hover doc' },
-    },
     t = {
       name = 'Trouble',
       d = { '<cmd>Trouble lsp_definitions<cr>', 'LSP definitions' },
