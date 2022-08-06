@@ -19,6 +19,7 @@ local servers = {
   'eslint',
   'graphql',
   'html',
+  'jedi_language_server',
   'jsonls',
   'sumneko_lua',
   'svelte',
@@ -53,12 +54,27 @@ lspinstaller.on_server_ready(function(server)
       capabilities = capabilities
     }
 
-    -- (optional) Customize the options passed to the server
+    -- Add organize import command 
     if server.name == "tsserver" then
       opts.commands = {
         OrganizeImports = {
           ts_organize_imports,
           description = "Organize Imports"
+        }
+      }
+    end
+
+    -- Add support for aws cloudformation tags
+    if server.name == "yamlls" then
+      opts.settings = {
+        yaml = {
+          completion = { enable = true },
+          customTags = {
+            "!GetAtt",
+            "!Ref",
+            "!Sub"
+          },
+          validate = { enable = true },
         }
       }
     end

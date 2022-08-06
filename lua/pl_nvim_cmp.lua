@@ -23,6 +23,7 @@ nvimcmp.setup {
     ['<C-n>'] = nvimcmp.mapping.select_next_item(),
     ['<C-p>'] = nvimcmp.mapping.select_prev_item(),
     ['<C-q>'] = nvimcmp.mapping.abort(),
+    ['<C-c>'] = nvimcmp.mapping.complete(),
     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<CR>'] = nvimcmp.mapping.confirm({ select = true })
   },

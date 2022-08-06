@@ -10,7 +10,8 @@ whichkey.register({
       name = 'Bufferline',
       d = { ':bdelete!<cr>', 'Delete buffer' },
       j = { ':BufferLineCycleNext<cr>', 'Next buffer' },
-      k = { ':BufferLineCyclePrev<cr>', 'Previous buffer' }
+      k = { ':BufferLineCyclePrev<cr>', 'Previous buffer' },
+      l = { ':bl<cr>', 'Open last buffer' }
     },
     f = {
       name = 'Telescope',

@@ -12,6 +12,7 @@ treesittercfg.setup {
     'json',
     'lua',
     'markdown',
+    'python',
     'scss',
     'svelte',
     'tsx',
