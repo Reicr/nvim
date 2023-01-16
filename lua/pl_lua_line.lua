@@ -3,4 +3,10 @@ if not lualine_ok then
   return
 end
 
-lualine.setup {}
+local package_info = require('package-info')
+
+lualine.setup {
+  sections = {
+    lualine_c = { 'filename', package_info.get_status }
+  }
+}

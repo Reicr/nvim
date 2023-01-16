@@ -8,13 +8,12 @@ nvimcmp.setup {
     format = function(entry, vim_item)
       -- Source
       vim_item.menu = ({
-        buffer = "[Buffer]",
-        nvim_lua = "[LUA]",
         nvim_lsp = "[LSP]",
         nvim_lsp_document_symbol = "[LSPDS]",
         nvim_lsp_signature_help = "[LSPSH]",
-        path = "[Path]",
         treesitter = "[TS]",
+        nvim_lua = "[LUA]",
+        path = "[Path]",
       })[entry.source.name]
       return vim_item
     end
@@ -34,7 +33,6 @@ nvimcmp.setup {
     end,
   },
   sources = {
-    { name = 'buffer' },
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_document_symbol' },

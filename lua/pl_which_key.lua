@@ -11,7 +11,8 @@ whichkey.register({
       d = { ':bdelete!<cr>', 'Delete buffer' },
       j = { ':BufferLineCycleNext<cr>', 'Next buffer' },
       k = { ':BufferLineCyclePrev<cr>', 'Previous buffer' },
-      l = { ':bl<cr>', 'Open last buffer' }
+      l = { ':bl<cr>', 'Open last buffer' },
+      p = { ':BufferLinePick<cr>', 'Pick buffer'}
     },
     f = {
       name = 'Telescope',
@@ -41,13 +42,41 @@ whichkey.register({
       s = { '<cmd>Telescope git_stash<cr>', 'Git stash' },
       t = { '<cmd>Telescope git_status<cr>', 'Git status' }
     },
+    h = {
+      name = 'Hop',
+      a = { ':HopAnywhere<cr>', 'Hop to anywhere' },
+      b = { ':HopChar2<cr>', 'Hop to bigram' },
+      c = { ':HopChar1<cr>', 'Hop to character' },
+      l = { ':HopLine<cr>', 'Hop to line' },
+      ['ls'] = { ':HopLineStart<cr>', 'Hop to line start' },
+      p = { ':HopPattern<cr>', 'Hop to pattern' },
+      w = { ':HopWord<cr>', 'Hop to word' },
+    },
     l = {
       name = 'LSP',
       a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code Actions' },
+      d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Go to definintion' },
       f = { '<cmd>lua vim.lsp.buf.formatting_sync()<cr>', 'Format file' },
       h = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Hover' },
-      I = { ':LspInfo<cr>', 'LSP Info' },
+      i = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Go to implementation' },
+      I = { '<cmd>LspInfo<cr>', 'LSP Info' },
       R = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
+    },
+    p = {
+      name = 'Package Info',
+      c = { '<cmd>PackageInfoChangeVersion<cr>', 'Change package version' },
+      d = { '<cmd>PackageInfoDelete<cr>', 'Delete package' },
+      h = { '<cmd>PackageInfoHide<cr>', 'Hide package version info' },
+      i = { '<cmd>PackageInfoInstall<cr>', 'Install new package' },
+      s = { '<cmd>PackageInfoShow<cr>', 'Show package version info' },
+      u = { '<cmd>PackageInfoUpdate<cr>', 'Update package' },
+    },
+    r = {
+      name = 'Resize window',
+      ['hd'] = { '<cmd>resize -10<cr>', 'Decrease height' },
+      ['hi'] = { '<cmd>resize +10<cr>', 'Increase height' },
+      ['vd'] = { '<cmd>vertical resize -10<cr>', 'Decrease width' },
+      ['vi'] = { '<cmd>vertical resize +10<cr>', 'Increase width' },
     },
     t = {
       name = 'Trouble',
@@ -58,6 +87,7 @@ whichkey.register({
       D = { '<cmd>Trouble document_diagnostics<cr>', 'Document diagnostics' },
       T = { '<cmd>TroubleToggle<cr>', 'Toggle trouble' },
       W = { '<cmd>Trouble workspace_diagnostics<cr>', 'Workspace diagnostics' }
-    }
+    },
+    w = { ':lua require("nvim-window").pick()<cr>' , 'Pick window' }
   }
 })

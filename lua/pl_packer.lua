@@ -76,4 +76,16 @@ return packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   -- plugiin offers a buffer / tab line
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
+  -- plugin for window selection
+  use 'https://gitlab.com/yorickpeterse/nvim-window.git'
+  -- plugin for motion enhancement
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2'
+  }
+  -- plugin for managing package versions
+  use({
+    "vuki656/package-info.nvim",
+    requires = "MunifTanjim/nui.nvim",
+  })
 end)

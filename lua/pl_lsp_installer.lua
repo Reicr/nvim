@@ -10,7 +10,7 @@ end
 
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmpnvimlsp.update_capabilities(capabilities)
+capabilities = cmpnvimlsp.default_capabilities(capabilities)
 
 -- Include the servers you want to have installed by default below
 local servers = {
@@ -21,6 +21,8 @@ local servers = {
   'html',
   'jedi_language_server',
   'jsonls',
+  'marksman',
+  'rust_analyzer',
   'sumneko_lua',
   'svelte',
   'tsserver',
@@ -41,7 +43,7 @@ end
 local function ts_organize_imports()
   local params = {
     command = "_typescript.organizeImports",
-    arguments = {vim.api.nvim_buf_get_name(0)},
+    arguments = { vim.api.nvim_buf_get_name(0) },
     title = ""
   }
   vim.lsp.buf.execute_command(params)
@@ -54,6 +56,19 @@ lspinstaller.on_server_ready(function(server)
       capabilities = capabilities
     }
 
+    -- Define globals
+    if server.name == "sumneko_lua" then
+      opts.settings = {
+        Lua = {
+          diagnostics = {
+            globals = {
+              'vim'
+            }
+          }
+        }
+      }
+    end
+
     -- Add organize import command 
     if server.name == "tsserver" then
       opts.commands = {
@@ -64,15 +79,29 @@ lspinstaller.on_server_ready(function(server)
       }
     end
 
+    -- Set path to typescript lib folder
+    if server.name == "volar" then
+      opts.init_options = {
+        typescript = {
+          tsdk = '/Users/r.heinrich/.volta/tools/image/packages/typescript/lib/node_modules/typescript/lib'
+        }
+      }
+    end
+
     -- Add support for aws cloudformation tags
     if server.name == "yamlls" then
       opts.settings = {
         yaml = {
           completion = { enable = true },
           customTags = {
+            "!Equals sequence",
+            "!FindInMap sequence",
             "!GetAtt",
+            "!If sequence",
+            "!Join sequence",
             "!Ref",
-            "!Sub"
+            "!Sub",
+            "!Sub sequence"
           },
           validate = { enable = true },
         }
