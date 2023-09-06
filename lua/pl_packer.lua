@@ -16,11 +16,12 @@ return packer.startup(function(use)
   -- lsp config plugin for neovim
   use 'neovim/nvim-lspconfig'
   -- plugin to ease lsp installation
-  use 'williamboman/nvim-lsp-installer'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
   -- plugin for auto completion
   use 'hrsh7th/nvim-cmp'
   -- sources for nvim cmp
-  use 'hrsh7th/cmp-buffer'
+  -- use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-nvim-lsp-document-symbol'
