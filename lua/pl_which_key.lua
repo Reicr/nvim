@@ -8,6 +8,7 @@ whichkey.register({
   ["<leader>"] = {
     b = {
       name = 'Bufferline',
+      a = { ':%bdelete!<cr>', 'Delete all buffers' },
       d = { ':bdelete!<cr>', 'Delete buffer' },
       j = { ':BufferLineCycleNext<cr>', 'Next buffer' },
       k = { ':BufferLineCyclePrev<cr>', 'Previous buffer' },
@@ -25,6 +26,7 @@ whichkey.register({
       g = { '<cmd>Telescope grep_string<cr>', 'Grep cursor string' },
       i = { '<cmd>Telescope lsp_implementations<cr>', 'LSP implementations' },
       l = { '<cmd>Telescope live_grep<cr>', 'Live grep string' },
+      m = { '<cmd>Telescope marks<cr>', 'Marks' },
       r = { '<cmd>Telescope lsp_references<cr>', 'LSP references' },
       s = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Buffer fuzzy find' },
       t = { '<cmd>Telescope lsp_type_definitions<cr>', 'LSP type definitions' },
