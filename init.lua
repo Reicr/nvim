@@ -8,10 +8,7 @@ vim.g.mapleader = ' ' -- use space as leader key
 
 -- Setup package manager
 -- Needs to happen before other plugins try to run there setup
-require('pl_packer')
-
--- Load dracula theme
-vim.cmd[[colorscheme dracula]]
+require('pl_lazy')
 
 -- Run plugin setup
 require('pl_autopairs')
