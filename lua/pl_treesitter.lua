@@ -20,6 +20,7 @@ treesittercfg.setup {
     'tsx',
     'typescript',
     'vim',
+    'vimdoc',
     'vue',
     'yaml'
   },
