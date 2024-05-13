@@ -27,6 +27,7 @@ return {
 					"marksman",
 					"rust_analyzer",
 					"svelte",
+					"tailwindcss",
 					"tsserver",
 					"vimls",
 					"volar",

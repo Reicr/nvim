@@ -132,7 +132,26 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons", lazy = true },
-		opts = {},
+		opts = {
+			sections = {
+				lualine_c = {
+					{
+						"filename",
+
+						-- 0: Just the filename
+						-- 1: Relative path
+						-- 2: Absolute path
+						-- 3: Absolute path, with tilde as the home directory
+						-- 4: Filename and parent dir, with tilde as the home directory
+						path = 1,
+
+						-- Shortens path to leave 40 spaces in the window
+						-- for other components. (terrible name, any suggestions?)
+						shorting_target = 40,
+					},
+				},
+			},
+		},
 	},
 	-- plugin for git commands
 	"tpope/vim-fugitive",
