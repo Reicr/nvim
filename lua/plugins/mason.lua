@@ -28,7 +28,7 @@ return {
 					"rust_analyzer",
 					"svelte",
 					"tailwindcss",
-					"tsserver",
+					"ts_ls",
 					"vimls",
 					"volar",
 					"yamlls",

@@ -12,7 +12,7 @@ return {
 						name = "Buffer",
 						a = { ":%bdelete!<cr>", "Delete all buffers" },
 						d = { ":bdelete!<cr>", "Delete buffer" },
-						l = { ":bl<cr>", "Open last buffer" },
+						l = { ":b #<cr>", "Open last buffer" },
 						n = { ":bnext<cr>", "Open next buffer" },
 						p = { ":bprevious<cr>", "Open previous buffer" },
 					},

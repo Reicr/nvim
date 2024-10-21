@@ -107,16 +107,28 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { { "nvim-lua/plenary.nvim" } },
-		opts = {
-			defaults = {
-				file_ignore_patterns = {
-					"build[\\/]",
-					"%.git[\\/]",
-					"%.next[\\/]",
-					"node_modules",
+		config = function()
+			local actions = require("telescope.actions")
+			require("telescope").setup({
+				defaults = {
+					file_ignore_patterns = {
+						"build[\\/]",
+						"%.git[\\/]",
+						"%.next[\\/]",
+						"node_modules",
+					},
 				},
-			},
-		},
+				pickers = {
+					buffers = {
+						mappings = {
+							i = {
+								["<C-s>"] = actions.delete_buffer + actions.move_to_top,
+							},
+						},
+					},
+				},
+			})
+		end,
 	},
 	-- plugin that adds an improved fuzzy finder
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -177,6 +189,12 @@ return {
 		opts = {},
 		version = false,
 	},
+  -- plugin to offer operations around code blocks
+  {
+    "echasnovski/mini.ai",
+    opts = {},
+    version = false
+  },
 	-- plugin to highlight indent level
 	{
 		"echasnovski/mini.indentscope",
