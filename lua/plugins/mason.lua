@@ -61,7 +61,7 @@ return {
 					})
 				end,
 
-				["tsserver"] = function()
+				["ts_ls"] = function()
 					-- Function to organize imports in typescript and javascript files
 					local function ts_organize_imports()
 						local params = {
@@ -72,7 +72,7 @@ return {
 						vim.lsp.buf.execute_command(params)
 					end
 
-					lsp_config["tsserver"].setup({
+					lsp_config["ts_ls"].setup({
 						capabilities = capabilities,
 						commands = {
 							OrganizeImports = {
