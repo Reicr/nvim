@@ -76,11 +76,10 @@ return {
 					},
 					t = {
 						name = "Trouble",
-						d = { ":Trouble document_diagnostics<cr>", "Document diagnostics" },
+						d = { ":Trouble diagnostics toggle filter.buf=0<cr>", "Document diagnostics" },
 						n = { ":lua vim.diagnostic.goto_next()<cr>", "Next diagnostic" },
 						p = { ":lua vim.diagnostic.goto_prev()<cr>", "Previous diagnostic" },
-						t = { ":TroubleToggle<cr>", "Toggle trouble" },
-						w = { ":Trouble workspace_diagnostics<cr>", "Workspace diagnostics" },
+						w = { ":Trouble diagnostics toggle<cr>", "Workspace diagnostics" },
 					},
 					w = { ':lua require("nvim-window").pick()<cr>', "Pick window" },
 				},
