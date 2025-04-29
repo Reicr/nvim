@@ -1,0 +1,21 @@
+{
+  "diagnostics": {
+    "globals": ["vim"],
+    "neededFileStatus": {
+      "codestyle-check": "Any"
+    }
+  },
+  "format": {
+    "defaultConfig": {
+      "indent_size": "2",
+      "indent_style": "space"
+    }
+  },
+  "runtime": {
+    "version": "LuaJIT"
+  },
+  "workspace": {
+    "checkThirdParty": "Disable",
+    "library": ["/opt/homebrew/Cellar/neovim/HEAD-9b239a6/share/nvim"]
+  }
+}
