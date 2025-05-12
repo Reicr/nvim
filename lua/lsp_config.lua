@@ -15,6 +15,17 @@ vim.lsp.config['lua_ls'] = {
 }
 vim.lsp.enable('lua_ls')
 
+-- Rust Language Server
+vim.lsp.config['rust_ls'] = {
+  cmd = { 'rust-analyzer' },
+  filetypes = { 'rust' },
+  root_markers = {
+    'Cargo.toml',
+    '.git'
+  }
+}
+vim.lsp.enable('rust_ls')
+
 -- Typescript Language Server
 vim.lsp.config['typescript_ls'] = {
   cmd = {
