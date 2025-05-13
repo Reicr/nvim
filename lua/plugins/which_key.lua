@@ -18,6 +18,8 @@ return {
         { "<leader>fb",  ":FzfLua buffers<cr>",                                                         desc = "Buffer" },
         { "<leader>ff",  ":FzfLua files<cr>",                                                           desc = "File" },
         { "<leader>fg",  ":FzfLua live_grep<cr>",                                                       desc = "Grep" },
+        { "<leader>fi",  ":FzfLua registers<cr>",                                                       desc = "Register" },
+        { "<leader>fm",  ":FzfLua marks<cr>",                                                           desc = "Mark" },
         { "<leader>fr",  ":FzfLua resume<cr>",                                                          desc = "Resume" },
         { "<leader>fu",  ":FzfLua lsp_references<cr>",                                                  desc = "Reference" },
         { "<leader>g",   group = "Git" },
