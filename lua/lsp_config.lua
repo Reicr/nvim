@@ -1,3 +1,29 @@
+-- CSS Language Server
+vim.lsp.config['css_ls'] = {
+  cmd = {
+    'vscode-css-language-server',
+    '--stdio'
+  },
+  filetypes = {
+    'css',
+    'less',
+    'scss',
+    'svelte'
+  },
+  init_options = { provideFormatter = true },
+  root_markers = {
+    'tsconfig.json',
+    'package.json',
+    '.git'
+  },
+  settings = {
+    css = { validate = true },
+    scss = { validate = true },
+    less = { validate = true },
+  }
+}
+vim.lsp.enable('css_ls')
+
 -- Lua Language Server
 vim.lsp.config['lua_ls'] = {
   cmd = { 'lua-language-server' },
